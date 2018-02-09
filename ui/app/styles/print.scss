@@ -804,7 +804,9 @@ h1, h2, h3 {
     color: $black !important;
 }
 
-
+.concept-set-label {
+    font-weight: bold;
+}
 
 .print-patient-summary{
     &.print-wrapper{
