@@ -60,7 +60,7 @@ angular.module('bahmni.appointments')
                 $scope.validatedAppointment = Bahmni.Appointments.Appointment.create($scope.appointment);
                 var conflictingAppointments = getConflictingAppointments($scope.validatedAppointment);
                 if (conflictingAppointments.length === 0) {
-                    saveAppointment($scope.validatedAppointment);
+                    return saveAppointment($scope.validatedAppointment);
                 } else {
                     $scope.displayConflictConfirmationDialog();
                 }
@@ -447,7 +447,7 @@ angular.module('bahmni.appointments')
             };
 
             var saveAppointment = function (appointment) {
-                appointmentsService.save(appointment).then(function () {
+                return spinner.forPromise(appointmentsService.save(appointment).then(function () {
                     messagingService.showMessage('info', 'APPOINTMENT_SAVE_SUCCESS');
                     $scope.showConfirmationPopUp = false;
                     var params = $state.params;
@@ -455,7 +455,7 @@ angular.module('bahmni.appointments')
                     params.isFilterOpen = true;
                     params.isSearchEnabled = params.isSearchEnabled && $scope.isEditMode();
                     $state.go('^', params, {reload: true});
-                });
+                }));
             };
 
             var wireAutocompleteEvents = function () {
