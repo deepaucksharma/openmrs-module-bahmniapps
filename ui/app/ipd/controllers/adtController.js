@@ -290,7 +290,7 @@ angular.module('bahmni.ipd')
             };
 
             var disableButton = function () {
-                $scope.isDisabled = !$scope.isDisabled;
+                $scope.isDisabled = true;
             };
 
             $scope.transferConfirmation = function () {
