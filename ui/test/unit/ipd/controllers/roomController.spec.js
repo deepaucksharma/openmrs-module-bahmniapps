@@ -1,6 +1,6 @@
 'use strict';
 
-ddescribe('RoomController', function () {
+describe('RoomController', function () {
 
     var controller;
     var rootScope, translate;
