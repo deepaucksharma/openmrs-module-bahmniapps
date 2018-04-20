@@ -84,7 +84,7 @@ angular.module('bahmni.ot')
             var addOrUpdateTheSurgicalAppointment = function (surgicalAppointment) {
                 if (surgicalAppointment.sortWeight >= 0) {
                     var existingAppointment = _.find($scope.surgicalForm.surgicalAppointments, function (appointment) {
-                        return appointment.isBeingEdited;
+                        return appointment.isBeingEdited === true && appointment.isDirty === true;
                     });
                     existingAppointment.notes = surgicalAppointment.notes;
                     existingAppointment.patient = surgicalAppointment.patient;
@@ -130,10 +130,10 @@ angular.module('bahmni.ot')
                     checkIfSurgicalAppointmentIsDirty(surgicalAppointment);
                     addOrUpdateTheSurgicalAppointment(surgicalAppointment);
                     getAvailableBlockDurationInHoursAndMinutesFormat();
-                    ngDialog.close();
                     surgicalAppointment.isBeingEdited = false;
                     surgicalAppointment.isDirty = true;
                     $scope.surgicalForm.surgicalAppointments[surgicalAppointment.sortWeight] = surgicalAppointment;
+                    ngDialog.close();
                 }
                 else {
                     messagingService.showMessage('error', "{{'OT_SURGICAL_APPOINTMENT_EXCEEDS_BLOCK_DURATION' | translate}}");

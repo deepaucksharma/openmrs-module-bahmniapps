@@ -212,9 +212,24 @@ describe("newSurgicalAppointmentController", function () {
     });
 
     it("should close the dialog when clicked on close", function () {
+        var ngDialogData = {
+            id: 1,
+            sortWeight: 0,
+            notes: "need more assistants",
+            patient: {
+                uuid: "patientUuid",
+                display: "firstName lastName",
+                person: {given_name: "firstName", family_name: "lastName"}
+            },
+            isEditMode: true,
+            isDirty: true
+        };
+        scope.ngDialogData = ngDialogData;
         createController();
         scope.close();
         expect(ngDialog.close).toHaveBeenCalled();
+        expect(ngDialog.isEditMode).toBe(undefined);
+        expect(ngDialog.isDirty).toBe(undefined);
     });
 
     it("should initialize scope variables for appointment with data from the dialogData in edit appointment mode", function () {

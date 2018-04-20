@@ -84,6 +84,8 @@ angular.module('bahmni.ot')
             };
 
             $scope.close = function () {
+                delete $scope.ngDialogData.isBeingEdited;
+                delete $scope.ngDialogData.isDirty;
                 ngDialog.close();
             };
 
