@@ -44,6 +44,10 @@ angular.module('bahmni.ot')
             };
 
             $scope.editAppointment = function (surgicalAppointment) {
+                _.forEach($scope.surgicalForm.surgicalAppointments, function (surgicalAppointment) {
+                    delete surgicalAppointment.isBeingEdited;
+                });
+
                 var clone = _.cloneDeep(surgicalAppointment);
                 surgicalAppointment.isBeingEdited = true;
                 $scope.addNewSurgicalAppointment(clone);
@@ -84,7 +88,7 @@ angular.module('bahmni.ot')
             var addOrUpdateTheSurgicalAppointment = function (surgicalAppointment) {
                 if (surgicalAppointment.sortWeight >= 0) {
                     var existingAppointment = _.find($scope.surgicalForm.surgicalAppointments, function (appointment) {
-                        return appointment.isBeingEdited === true && appointment.isDirty === true;
+                        return appointment.isBeingEdited;
                     });
                     existingAppointment.notes = surgicalAppointment.notes;
                     existingAppointment.patient = surgicalAppointment.patient;

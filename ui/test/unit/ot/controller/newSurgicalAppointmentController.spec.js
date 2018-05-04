@@ -221,15 +221,16 @@ describe("newSurgicalAppointmentController", function () {
                 display: "firstName lastName",
                 person: {given_name: "firstName", family_name: "lastName"}
             },
-            isEditMode: true,
+            isBeingEdited: true,
             isDirty: true
         };
+        scope.surgicalForm = {surgicalAppointments: [ngDialogData]}
         scope.ngDialogData = ngDialogData;
         createController();
         scope.close();
         expect(ngDialog.close).toHaveBeenCalled();
-        expect(ngDialog.isEditMode).toBe(undefined);
-        expect(ngDialog.isDirty).toBe(undefined);
+        expect(ngDialog.isBeingEdited).toBe(undefined);
+        expect(scope.surgicalForm.surgicalAppointments[0].isBeingEdited).toBe(undefined);
     });
 
     it("should initialize scope variables for appointment with data from the dialogData in edit appointment mode", function () {
