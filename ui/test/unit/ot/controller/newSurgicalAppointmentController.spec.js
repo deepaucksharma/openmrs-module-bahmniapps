@@ -141,7 +141,7 @@ describe("newSurgicalAppointmentController", function () {
                     surgicalAppointmentAttributeType: {
                         uuid: '25ef8484-3a1f-11e7-83f8-0800274a5156',
                         name: 'procedure'
-                    }
+                    }, value: ""
                 },
                 cleaningTime: {
                     surgicalAppointmentAttributeType: {
@@ -165,37 +165,37 @@ describe("newSurgicalAppointmentController", function () {
                     surgicalAppointmentAttributeType: {
                         uuid: '25efd013-3a1f-11e7-83f8-0800274a5156',
                         name: 'otherSurgeon'
-                    }
+                    }, value: ""
                 },
                 surgicalAssistant: {
                     surgicalAppointmentAttributeType: {
                         uuid: '25efdf1b-3a1f-11e7-83f8-0800274a5156',
                         name: 'surgicalAssistant'
-                    }
+                    }, value: ""
                 },
                 anaesthetist: {
                     surgicalAppointmentAttributeType: {
                         uuid: '25efec33-3a1f-11e7-83f8-0800274a5156',
                         name: 'anaesthetist'
-                    }
+                    }, value: ""
                 },
                 scrubNurse: {
                     surgicalAppointmentAttributeType: {
                         uuid: '25eff89a-3a1f-11e7-83f8-0800274a5156',
                         name: 'scrubNurse'
-                    }
+                    }, value: ""
                 },
                 circulatingNurse: {
                     surgicalAppointmentAttributeType: {
                         uuid: '25f0060e-3a1f-11e7-83f8-0800274a5156',
                         name: 'circulatingNurse'
-                    }
+                    }, value: ""
                 },
                 notes: {
                     surgicalAppointmentAttributeType: {
                         uuid: '25f0060e-3a1f-11e7-83f8-0800274a5156',
                         name: 'notes'
-                    }
+                    }, value: ""
                 }
             }
         };
@@ -266,7 +266,7 @@ describe("newSurgicalAppointmentController", function () {
                 surgicalAppointmentAttributeType: {
                     uuid: '25ef8484-3a1f-11e7-83f8-0800274a5156',
                     name: 'procedure'
-                }
+                }, value: ""
             },
             cleaningTime: {
                 surgicalAppointmentAttributeType: {
@@ -290,37 +290,37 @@ describe("newSurgicalAppointmentController", function () {
                 surgicalAppointmentAttributeType: {
                     uuid: '25efd013-3a1f-11e7-83f8-0800274a5156',
                     name: 'otherSurgeon'
-                }
+                }, value: ""
             },
             surgicalAssistant: {
                 surgicalAppointmentAttributeType: {
                     uuid: '25efdf1b-3a1f-11e7-83f8-0800274a5156',
                     name: 'surgicalAssistant'
-                }
+                }, value: ""
             },
             anaesthetist: {
                 surgicalAppointmentAttributeType: {
                     uuid: '25efec33-3a1f-11e7-83f8-0800274a5156',
                     name: 'anaesthetist'
-                }
+                }, value: ""
             },
             scrubNurse: {
                 surgicalAppointmentAttributeType: {
                     uuid: '25eff89a-3a1f-11e7-83f8-0800274a5156',
                     name: 'scrubNurse'
-                }
+                }, value: ""
             },
             circulatingNurse: {
                 surgicalAppointmentAttributeType: {
                     uuid: '25f0060e-3a1f-11e7-83f8-0800274a5156',
                     name: 'circulatingNurse'
-                }
+                }, value: ""
             },
             notes: {
                 surgicalAppointmentAttributeType: {
                     uuid: '25f0060e-3a1f-11e7-83f8-0800274a5156',
                     name: 'notes'
-                }
+                }, value: ""
             }
         };
         scope.ngDialogData = ngDialogData;
@@ -428,7 +428,7 @@ describe("newSurgicalAppointmentController", function () {
                     surgicalAppointmentAttributeType: {
                         uuid: '25ef8484-3a1f-11e7-83f8-0800274a5156',
                         name: 'procedure'
-                    }
+                    }, value: ""
                 },
                 cleaningTime: {
                     surgicalAppointmentAttributeType: {
@@ -452,37 +452,37 @@ describe("newSurgicalAppointmentController", function () {
                     surgicalAppointmentAttributeType: {
                         uuid: '25efd013-3a1f-11e7-83f8-0800274a5156',
                         name: 'otherSurgeon'
-                    }
+                    }, value: ""
                 },
                 surgicalAssistant: {
                     surgicalAppointmentAttributeType: {
                         uuid: '25efdf1b-3a1f-11e7-83f8-0800274a5156',
                         name: 'surgicalAssistant'
-                    }
+                    }, value: ""
                 },
                 anaesthetist: {
                     surgicalAppointmentAttributeType: {
                         uuid: '25efec33-3a1f-11e7-83f8-0800274a5156',
                         name: 'anaesthetist'
-                    }
+                    }, value: ""
                 },
                 scrubNurse: {
                     surgicalAppointmentAttributeType: {
                         uuid: '25eff89a-3a1f-11e7-83f8-0800274a5156',
                         name: 'scrubNurse'
-                    }
+                    }, value: ""
                 },
                 circulatingNurse: {
                     surgicalAppointmentAttributeType: {
                         uuid: '25f0060e-3a1f-11e7-83f8-0800274a5156',
                         name: 'circulatingNurse'
-                    }
+                    }, value: ""
                 },
                 notes: {
                     surgicalAppointmentAttributeType: {
                         uuid: '25f0060e-3a1f-11e7-83f8-0800274a5156',
                         name: 'notes'
-                    }
+                    }, value: ""
                 }
             }
         };
