@@ -136,7 +136,13 @@ angular.module('bahmni.ot')
                     getAvailableBlockDurationInHoursAndMinutesFormat();
                     surgicalAppointment.isBeingEdited = false;
                     surgicalAppointment.isDirty = true;
-                    $scope.surgicalForm.surgicalAppointments[surgicalAppointment.sortWeight] = surgicalAppointment;
+
+                    var appointmentIndex;
+                    _.find($scope.surgicalForm.surgicalAppointments, function (appointment, index) {
+                        appointmentIndex = index;
+                        return surgicalAppointment.sortWeight === appointment.sortWeight;
+                    });
+                    $scope.surgicalForm.surgicalAppointments[appointmentIndex] = surgicalAppointment;
                     ngDialog.close();
                 }
                 else {
