@@ -47,7 +47,7 @@ angular.module('bahmni.home')
 
             localeService.getLoginText().then(function (response) {
                 $scope.logo = response.data.loginPage.logo;
-                $scope.bottomLogos = response.data.loginPage.bottomLogos;
+                $scope.bottomBanner = response.data.loginPage.bottomBanner;
                 $scope.headerText = response.data.loginPage.showHeaderText;
                 $scope.titleText = response.data.loginPage.showTitleText;
                 $scope.helpLink = response.data.helpLink.url;
@@ -133,28 +133,26 @@ angular.module('bahmni.home')
 
                 sessionService.loginUser($scope.loginInfo.username, $scope.loginInfo.password, $scope.loginInfo.currentLocation, $scope.loginInfo.otp).then(
                     function (data) {
-                        localeService.setLocale($scope.selectedLocale).finally(function () {
-                            ensureNoSessionIdInRoot();
-                            if (data && data.firstFactAuthorization) {
-                                $scope.showOTP = true;
-                                deferrable.resolve(data);
-                                return;
-                            }
-                            sessionService.loadCredentials().then(function () {
-                                onSuccessfulAuthentication();
-                                $rootScope.currentUser.addDefaultLocale($scope.selectedLocale);
-                                userService.savePreferences().then(
-                                    function () { deferrable.resolve(); },
-                                    function (error) { deferrable.reject(error); }
-                                );
-                                logAuditForLoginAttempts("USER_LOGIN_SUCCESS");
-                            }, function (error) {
-                                $scope.errorMessageTranslateKey = error;
-                                deferrable.reject(error);
-                                logAuditForLoginAttempts("USER_LOGIN_FAILED", true);
-                            }
+                        ensureNoSessionIdInRoot();
+                        if (data && data.firstFactAuthorization) {
+                            $scope.showOTP = true;
+                            deferrable.resolve(data);
+                            return;
+                        }
+                        sessionService.loadCredentials().then(function () {
+                            onSuccessfulAuthentication();
+                            $rootScope.currentUser.addDefaultLocale($scope.selectedLocale);
+                            userService.savePreferences().then(
+                                function () { deferrable.resolve(); },
+                                function (error) { deferrable.reject(error); }
                             );
-                        });
+                            logAuditForLoginAttempts("USER_LOGIN_SUCCESS");
+                        }, function (error) {
+                            $scope.errorMessageTranslateKey = error;
+                            deferrable.reject(error);
+                            logAuditForLoginAttempts("USER_LOGIN_FAILED", true);
+                        }
+                        );
                     },
                     function (error) {
                         $scope.errorMessageTranslateKey = error;

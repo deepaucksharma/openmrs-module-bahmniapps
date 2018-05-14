@@ -5,8 +5,8 @@
         <div class="opd-header-bottom tabs">
             <bm-back-links></bm-back-links>
             <recent-patients ng-if="enablePatientSearch()"></recent-patients>
-            <a show-if-privilege="app:adt" ng-click= "displayConfirmationDialog($event)" class="back-btn"  ng-href="../adt/#/patient/{{patient.uuid}}/visit/{{consultation.visitUuid}}/"
-               title="Go to IPD dashboard">
+            <a show-if-privilege="{{ipdButtonConfig.privilege}}" ng-if="!isGoToIPDButtonHidden()" ng-click= "displayConfirmationDialog($event)" class="back-btn" ng-href="{{generateBedManagementURL(consultation.uuid)}}"
+               title="{{ipdButtonConfig.title}}">
                 <i class="fa fa-bed fa-white"></i>
             </a>
             <a class="back-btn-link" id="dashboard-link" accesskey="d" ng-click="gotoPatientDashboard()" title="Back to {{patient.name}} Dashboard">
@@ -41,10 +41,11 @@
         <div class="opd-header-bottom tabs">
             <bm-back-links></bm-back-links>
             <recent-patients></recent-patients>
-            <a show-if-privilege="app:adt" class="back-btn" ng-click= "displayConfirmationDialog($event)" ng-href="../adt/#/patient/{{patient.uuid}}/visit/{{visitHistory.activeVisit.uuid}}/"
-               title="Go to IPD Dashboard">
+            <a show-if-privilege="{{ipdButtonConfig.privilege}}" ng-if="!isGoToIPDButtonHidden()" ng-click= "displayConfirmationDialog($event)" class="back-btn" ng-href="{{generateBedManagementURL(visitHistory.activeVisit.uuid)}}"
+               title="{{ipdButtonConfig.title}}">
                 <i class="fa fa-bed fa-white"></i>
             </a>
+
             <div class="desktop-menu fl">
                 <ul class="header-tabs" ng-if="clinicalDashboardConfig.showTabs()">
                     <li class="tab-item dashboard" ng-repeat="dashboard in clinicalDashboardConfig.visibleTabs"
@@ -84,8 +85,8 @@
             <div class="dashboard-header-right-wrapper">
                 <div ng-if="::clinicalDashboardConfig.quickPrints" class="fl print-list-wrapper" toggle="togglePrintList">
                     <button ng-if="clinicalDashboardConfig.showPrint()" class="dialog-button-group"
-                            accesskey="{{'CLINICAL_PRINT_ACCESS_KEY'| translate}}">
-                        <span ng-bind-html="'CLINICAL_PRINT_TRANSLATION_KEY'|translate"></span> <i class="fa fa-print"></i> <i class="fa fa-caret-down"></i>
+                            accesskey="{{'CLINICAL_PRINT_ACCESS_KEY'| translate}}" ng-bind-html="'CLINICAL_PRINT_TRANSLATION_KEY'|translate">
+                        <i class="fa fa-print"></i>
                     </button>
                     <ul>
                         <li accesskey="{{::tab.printing.shortcutKey}}" ng-repeat="tab in ::printList" ng-click="::printDashboard(tab)">
@@ -113,7 +114,7 @@
                     accesskey="{{'CONSULTATION_SHORTCUT_KEY' | translate}}"
                     ng-bind-html="'CONSULTATION_TAB_KEY' | translate">
                  </a>
-                <a class="btn--right btn--success " title="{{'OPEN_IN_NEW_WINDOW'|translate}}"
+                <a class="btn--right btn--success " title="Open in new window"
                    ng-if="visitHistory.activeVisit || retrospectiveEntry"
                    ng-click="openConsultationInNewTab()"><i class="fa fa-external-link"></i></a>
            </span>

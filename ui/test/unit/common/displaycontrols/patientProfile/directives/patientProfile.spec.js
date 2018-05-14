@@ -1,16 +1,13 @@
 'use strict';
 
 describe("Patient Profile display control", function () {
-    var element, scope, $compile, mockBackend, $window, $q, openMRSPatientMockData, visitService, translateFilter;
+    var element, scope, $compile, mockBackend, $window, $q, openMRSPatientMockData, visitService;
 
     beforeEach(module('ngHtml2JsPreprocessor'));
     beforeEach(module('bahmni.common.patient'));
     beforeEach(module('bahmni.common.uiHelper'));
     beforeEach(module('bahmni.common.displaycontrol.patientprofile'));
     beforeEach(module(function ($provide) {
-        translateFilter = jasmine.createSpy('translateFilter');
-        $provide.value('translateFilter', translateFilter);
-
         $provide.value('$stateParams', {configName: "programs"});
 
         $window = jasmine.createSpyObj('$window', ['open']);

@@ -86,11 +86,6 @@ angular
                         templateUrl: 'views/manage/calendar/calendarView.html',
                         controller: 'AppointmentsCalendarViewController'
                     }
-                },
-                resolve: {
-                    appointmentsContext: function (appointmentsInitialization) {
-                        return appointmentsInitialization();
-                    }
                 }
             }).state('home.manage.appointments.calendar.new', {
                 url: '/new',
@@ -204,6 +199,4 @@ angular
             });
 
             $bahmniTranslateProvider.init({app: 'appointments', shouldMerge: true});
-        }]).run(['$window', function ($window) {
-            moment.locale($window.localStorage["NG_TRANSLATE_LANG_KEY"] || "en");
         }]);

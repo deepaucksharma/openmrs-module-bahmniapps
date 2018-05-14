@@ -149,6 +149,7 @@ Bahmni.ConceptSet.ObservationMapper = function () {
 
     function buildObservation (concept, savedObs, mappedGroupMembers) {
         var comment = savedObs ? savedObs.comment : null;
+        var disabled = savedObs ? savedObs.disabled : null;
         return {
             concept: conceptMapper.map(concept),
             units: concept.units,
@@ -156,6 +157,7 @@ Bahmni.ConceptSet.ObservationMapper = function () {
             possibleAnswers: concept.answers,
             groupMembers: mappedGroupMembers,
             comment: comment,
+            disabled: disabled,
             showAddMoreButton: showAddMoreButton
         };
     }

@@ -96,6 +96,7 @@
     }
   }
   .pdf-link {
+    display: none;
     text-align: right;
     display: block;
     margin-right: 10px;
@@ -370,4 +371,15 @@
 .gallery-open .ngdialog.ngdialog-theme-default .ngdialog-content {
   padding: 0;
   width: 70%;
+}
+.dialog-close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 5px !important;
+}
+.ngdialog .toggle-patient {
+  position: relative;
+  top: 0;
+  right: 10px;
 }
